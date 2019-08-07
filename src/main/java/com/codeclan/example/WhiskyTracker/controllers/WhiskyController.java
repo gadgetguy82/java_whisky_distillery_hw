@@ -25,13 +25,6 @@ public class WhiskyController {
 
   @GetMapping(value = "/from/{distillery}/aged/{age}")
   public List<Whisky> findWhiskiesFromDistilleryThatHaveAge(@PathVariable String distillery, @PathVariable int age) {
-    String[] nameArray = distillery.toLowerCase().split(" ");
-    String[] namesCapitalized = new String[nameArray.length];
-    for(int i = 0; i < nameArray.length; i++) {
-      String firstLetter = nameArray[i].substring(0, 1).toUpperCase();
-      namesCapitalized[i] = firstLetter + nameArray[i].substring(1);
-    }
-    String formattedName = String.join(" ", namesCapitalized);
-    return whiskyRepository.findWhiskiesFromDistilleryThatHaveAge(formattedName, age);
+    return whiskyRepository.findWhiskiesFromDistilleryThatHaveAge(distillery, age);
   }
 }
