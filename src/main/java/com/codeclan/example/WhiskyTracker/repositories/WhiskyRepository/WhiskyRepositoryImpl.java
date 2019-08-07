@@ -24,6 +24,8 @@ public class WhiskyRepositoryImpl implements WhiskyRepositoryCustom {
 
     Session session = entityManager.unwrap(Session.class);
 
+    distilleryName = Helper.capitalise(distilleryName);
+
     try {
       Criteria criteria = session.createCriteria(Whisky.class);
       criteria.createAlias("distillery", "distilleryAlias");

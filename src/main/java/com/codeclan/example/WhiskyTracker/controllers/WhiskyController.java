@@ -18,13 +18,18 @@ public class WhiskyController {
   @Autowired
   WhiskyRepository whiskyRepository;
 
-  @GetMapping(value = "/bottled/{year}")
+  @GetMapping(value = "/released/{year}")
   public List<Whisky> findWhiskiesByYear(@PathVariable int year) {
     return whiskyRepository.findWhiskiesByYear(year);
   }
 
-  @GetMapping(value = "/from/{distillery}/aged/{age}")
+  @GetMapping(value = "/made/{distillery}/aged/{age}")
   public List<Whisky> findWhiskiesFromDistilleryThatHaveAge(@PathVariable String distillery, @PathVariable int age) {
     return whiskyRepository.findWhiskiesFromDistilleryThatHaveAge(distillery, age);
+  }
+
+  @GetMapping(value = "/from/{region}")
+  public List<Whisky> findWhiskiesByRegion(@PathVariable String region) {
+    return whiskyRepository.findWhiskiesByRegion(region);
   }
 }
