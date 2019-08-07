@@ -19,7 +19,7 @@ public class WhiskyRepositoryImpl implements WhiskyRepositoryCustom {
   EntityManager entityManager;
 
   @Transactional
-  public List<Whisky> findWhiskiesFromDistilleryThatHaveAge(String distilleryName, int age) {
+  public List<Whisky> findWhiskiesFromDistilleryAndAged(String distilleryName, int age) {
     List<Whisky> result = null;
 
     Session session = entityManager.unwrap(Session.class);

@@ -1,6 +1,5 @@
 package com.codeclan.example.WhiskyTracker.controllers;
 
-import antlr.StringUtils;
 import com.codeclan.example.WhiskyTracker.models.Whisky;
 import com.codeclan.example.WhiskyTracker.repositories.WhiskyRepository.WhiskyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +23,8 @@ public class WhiskyController {
   }
 
   @GetMapping(value = "/made/{distillery}/aged/{age}")
-  public List<Whisky> findWhiskiesFromDistilleryThatHaveAge(@PathVariable String distillery, @PathVariable int age) {
-    return whiskyRepository.findWhiskiesFromDistilleryThatHaveAge(distillery, age);
+  public List<Whisky> findWhiskiesFromDistilleryAndAged(@PathVariable String distillery, @PathVariable int age) {
+    return whiskyRepository.findWhiskiesFromDistilleryAndAged(distillery, age);
   }
 
   @GetMapping(value = "/from/{region}")
